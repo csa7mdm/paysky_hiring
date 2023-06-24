@@ -44,7 +44,12 @@ namespace Service
                 throw;
             }
         }
-        public IEnumerable<Application> GetAll()
+
+        public Application Get(string Id)
+        {
+            return null;
+        }
+            public IEnumerable<Application> GetAll()
         {
             try
             {

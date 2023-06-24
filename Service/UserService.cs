@@ -3,14 +3,14 @@ using Repository;
 
 namespace Service
 {
-    public class UserService : IService<User>
+    public class UserService : IService<ApplicationUser>
     {
-        private readonly IRepository<User> _userRepository;
-        public UserService(IRepository<User> userRepository)
+        private readonly IUserRepository<ApplicationUser> _userRepository;
+        public UserService(IUserRepository<ApplicationUser> userRepository)
         {
             _userRepository = userRepository;
         }
-        public void Delete(User entity)
+        public void Delete(ApplicationUser entity)
         {
             try
             {
@@ -25,7 +25,11 @@ namespace Service
                 throw;
             }
         }
-        public User Get(int Id)
+        public ApplicationUser Get(int Id)
+        {
+            return null;
+        }
+            public ApplicationUser Get(string Id)
         {
             try
             {
@@ -44,7 +48,7 @@ namespace Service
                 throw;
             }
         }
-        public IEnumerable<User> GetAll()
+        public IEnumerable<ApplicationUser> GetAll()
         {
             try
             {
@@ -63,7 +67,7 @@ namespace Service
                 throw;
             }
         }
-        public void Insert(User entity)
+        public void Insert(ApplicationUser entity)
         {
             try
             {
@@ -78,7 +82,7 @@ namespace Service
                 throw;
             }
         }
-        public void Remove(User entity)
+        public void Remove(ApplicationUser entity)
         {
             try
             {
@@ -93,7 +97,7 @@ namespace Service
                 throw;
             }
         }
-        public void Update(User entity)
+        public void Update(ApplicationUser entity)
         {
             try
             {

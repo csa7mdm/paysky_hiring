@@ -10,9 +10,9 @@ namespace paysky_web_app.Controllers
     public class UserController : Controller
     {
         private readonly ILogger<UserController> _logger;
-        private readonly IService<User> _userService;
+        private readonly IService<ApplicationUser> _userService;
 
-        public UserController(ILogger<UserController> logger, IService<User> userService)
+        public UserController(ILogger<UserController> logger, IService<ApplicationUser> userService)
         {
             _logger = logger;
             _userService = userService;
@@ -42,7 +42,7 @@ namespace paysky_web_app.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(User user)
+        public IActionResult Create(ApplicationUser user)
         {
             if (ModelState.IsValid)
             {
@@ -64,7 +64,7 @@ namespace paysky_web_app.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, User user)
+        public IActionResult Edit(int id, ApplicationUser user)
         {
             if (id != user.UserId)
             {
@@ -91,7 +91,7 @@ namespace paysky_web_app.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Delete(int id, User user)
+        public IActionResult Delete(int id, ApplicationUser user)
         {
             _userService.Delete(user);
             return RedirectToAction(nameof(Index));

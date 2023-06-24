@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Repository.Handlers
 {
-    public class CreateUserHandler : IRequestHandler<CreateUserCommand, User>
+    public class CreateUserHandler : IRequestHandler<CreateUserCommand, ApplicationUser>
     {
-        public Task<User> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+        public Task<ApplicationUser> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }

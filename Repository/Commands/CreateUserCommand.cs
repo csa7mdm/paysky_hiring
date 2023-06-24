@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Repository.Commands
 {
-    public class CreateUserCommand: IRequest<User>
+    public class CreateUserCommand: IRequest<ApplicationUser>
     {
-        User entity;
+        ApplicationUser entity;
 
-        public CreateUserCommand(User entity)
+        public CreateUserCommand(ApplicationUser entity)
         {
             this.entity = entity;
         }

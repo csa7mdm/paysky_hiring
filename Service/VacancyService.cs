@@ -44,7 +44,12 @@ namespace Service
                 throw;
             }
         }
-        public IEnumerable<Vacancy> GetAll()
+
+        public Vacancy Get(string Id)
+        {
+            return null;
+        }
+            public IEnumerable<Vacancy> GetAll()
         {
             try
             {

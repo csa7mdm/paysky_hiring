@@ -8,7 +8,7 @@ namespace Repository
     {
         #region property
         private readonly ApplicationDbContext _applicationDbContext;
-        private DbSet<T> entities;
+        private readonly DbSet<T> entities;
         #endregion
         #region Constructor
         public CQRSAndMediatRRepository(ApplicationDbContext applicationDbContext)

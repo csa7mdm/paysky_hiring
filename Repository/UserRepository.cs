@@ -4,14 +4,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Repository
 {
-    public class Repository<T> : IRepository<T> where T : BaseEntity
+    public class UserRepository<T> : IUserRepository<T> where T : ApplicationUser
     {
         #region property
         private readonly ApplicationDbContext _applicationDbContext;
         private readonly DbSet<T> entities;
         #endregion
         #region Constructor
-        public Repository(ApplicationDbContext applicationDbContext)
+        public UserRepository(ApplicationDbContext applicationDbContext)
         {
             _applicationDbContext = applicationDbContext;
             entities = _applicationDbContext.Set<T>();
@@ -26,7 +26,7 @@ namespace Repository
             entities.Remove(entity);
             _applicationDbContext.SaveChanges();
         }
-        public T Get(int Id)
+        public T Get(string Id)
         {
             return entities.SingleOrDefault(c => c.Id == Id);
         }

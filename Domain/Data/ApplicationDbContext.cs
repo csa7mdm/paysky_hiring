@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Data
 {
-    public class ApplicationDbContext: IdentityDbContext<IdentityUser, IdentityRole, string>
+    public class ApplicationDbContext: IdentityDbContext<ApplicationUser, IdentityRole, string>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
@@ -28,17 +28,17 @@ namespace Domain.Data
                 .HasForeignKey(a => a.ApplicantId);
 
             // Set up data validations and constraints
-            builder.Entity<User>()
-                .Property(u => u.Username)
+            builder.Entity<ApplicationUser>()
+                .Property(u => u.UserName)
                 .IsRequired()
                 .HasMaxLength(50);
 
-            builder.Entity<User>()
+            builder.Entity<ApplicationUser>()
                 .Property(u => u.Password)
                 .IsRequired()
                 .HasMaxLength(100);
 
-            builder.Entity<User>()
+            builder.Entity<ApplicationUser>()
                 .Property(u => u.Email)
                 .IsRequired()
                 .HasMaxLength(100);
@@ -83,11 +83,12 @@ namespace Domain.Data
             // Invoke the base implementation
             base.OnModelCreating(builder);
         }
-        public DbSet<User> Users
-        {
-            get;
-            set;
-        }
+
+        //public DbSet<ApplicationUser> Users
+        //{
+        //    get;
+        //    set;
+        //}
         public DbSet<Vacancy> Vacancys
         {
             get;

@@ -68,7 +68,7 @@ namespace paysky_web_app.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, Application application)
+        public IActionResult Edit(string id, Application application)
         {
             if (id != application.ApplicantId)
             {
