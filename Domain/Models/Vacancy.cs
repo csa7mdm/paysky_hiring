@@ -2,7 +2,7 @@
 {
     public class Vacancy : BaseEntity
     {
-        public int VacancyId { get; set; }
+        public string VacancyId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public string Location { get; set; }

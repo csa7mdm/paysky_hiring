@@ -25,10 +25,6 @@ namespace Service
                 throw;
             }
         }
-        public ApplicationUser Get(int Id)
-        {
-            return null;
-        }
             public ApplicationUser Get(string Id)
         {
             try

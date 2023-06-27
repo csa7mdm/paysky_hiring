@@ -26,10 +26,11 @@ namespace Repository
             entities.Remove(entity);
             _applicationDbContext.SaveChanges();
         }
-        public T Get(int Id)
+        public T Get(string Id)
         {
             return entities.SingleOrDefault(c => c.Id == Id);
         }
+
         public IEnumerable<T> GetAll()
         {
             return entities.AsEnumerable();

@@ -30,7 +30,7 @@ namespace Repository
             return  affectedRows > 0;
         }
 
-        async Task<T> ICQRSAndMediatRRepository<T>.Get(int Id)
+        async Task<T> ICQRSAndMediatRRepository<T>.Get(string Id)
         {
             return await entities.SingleOrDefaultAsync(c => c.Id == Id);
         }

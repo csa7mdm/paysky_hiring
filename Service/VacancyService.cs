@@ -25,25 +25,6 @@ namespace Service
                 throw;
             }
         }
-        public Vacancy Get(int Id)
-        {
-            try
-            {
-                var obj = _vacancyRepository.Get(Id);
-                if (obj != null)
-                {
-                    return obj;
-                }
-                else
-                {
-                    return null;
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
 
         public Vacancy Get(string Id)
         {

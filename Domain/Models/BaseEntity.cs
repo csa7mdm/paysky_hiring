@@ -8,7 +8,7 @@ namespace Domain.Models
 {
     public class BaseEntity
     {
-        public int Id
+        public string Id
         {
             get;
             set;

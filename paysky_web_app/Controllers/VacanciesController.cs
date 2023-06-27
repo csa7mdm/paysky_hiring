@@ -26,7 +26,7 @@ namespace paysky_web_app.Controllers
             return View(vacancies);
         }
 
-        public IActionResult Details(int id)
+        public IActionResult Details(string id)
         {
             var vacancy = _vacancyService.Get(id);
             if (vacancy == null)
@@ -53,7 +53,7 @@ namespace paysky_web_app.Controllers
             return View(vacancy);
         }
 
-        public IActionResult Edit(int id)
+        public IActionResult Edit(string id)
         {
             var vacancy = _vacancyService.Get(id);
             if (vacancy == null)
@@ -65,7 +65,7 @@ namespace paysky_web_app.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, Vacancy vacancy)
+        public IActionResult Edit(string id, Vacancy vacancy)
         {
             if (id != vacancy.VacancyId)
             {
@@ -80,7 +80,7 @@ namespace paysky_web_app.Controllers
             return View(vacancy);
         }
 
-        public IActionResult Delete(int id)
+        public IActionResult Delete(string id)
         {
             var vacancy = _vacancyService.Get(id);
             if (vacancy == null)

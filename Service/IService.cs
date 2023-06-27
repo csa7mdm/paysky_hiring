@@ -3,7 +3,6 @@
     public interface IService<T> where T : class
     {
         IEnumerable<T> GetAll();
-        T Get(int Id);
         T Get(string Id);
         void Insert(T entity);
         void Update(T entity);

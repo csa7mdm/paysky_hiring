@@ -11,7 +11,7 @@ namespace Repository
     {
 
         public Task<IEnumerable<T>> GetAll();
-        public Task<T> Get(int Id);
+        public Task<T> Get(string Id);
         public Task<T> Insert(T entity);
         public Task<bool> Update(T entity);
         public Task<bool> Delete(T entity);

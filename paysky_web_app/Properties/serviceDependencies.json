@@ -4,9 +4,9 @@
       "type": "mssql",
       "connectionId": "ConnectionStrings:DefaultConnection"
     },
-    "mssql2": {
-      "type": "mssql",
-      "connectionId": "ConnectionStrings:paysky_web_appContextConnection"
-    }
+    //"mssql2": {
+    //  "type": "mssql",
+    //  "connectionId": "ConnectionStrings:paysky_web_appContextConnection"
+    //}
   }
 }

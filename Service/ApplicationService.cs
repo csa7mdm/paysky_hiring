@@ -25,7 +25,7 @@ namespace Service
                 throw;
             }
         }
-        public Application Get(int Id)
+        public Application Get(string Id)
         {
             try
             {
@@ -43,11 +43,6 @@ namespace Service
             {
                 throw;
             }
-        }
-
-        public Application Get(string Id)
-        {
-            return null;
         }
             public IEnumerable<Application> GetAll()
         {

@@ -1,4 +1,5 @@
 ﻿using Domain.Models;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Data
 {
-    public class ApplicationDbContext: IdentityDbContext<ApplicationUser, IdentityRole, string>
+    public class ApplicationDbContext: IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
@@ -35,7 +36,6 @@ namespace Domain.Data
 
             builder.Entity<ApplicationUser>()
                 .Property(u => u.Password)
-                .IsRequired()
                 .HasMaxLength(100);
 
             builder.Entity<ApplicationUser>()
@@ -80,15 +80,42 @@ namespace Domain.Data
                 new IdentityRole { Id = "3", Name = "Applicant", NormalizedName = "APPLICANT" }
             );
 
+            builder.Entity<IdentityUser>().HasData(
+               new IdentityUser { 
+                   Id = "1", UserName = "Admin", 
+                   Email = "admin@xyz.com", 
+                   NormalizedUserName = "ADMIN", 
+                   EmailConfirmed = true, 
+                   PasswordHash = new PasswordHasher().HashPassword("1234")
+               },
+               
+               new IdentityUser { 
+                   Id = "2", 
+                   UserName = "Employee", 
+                   Email = "employee@xyz.com", 
+                   NormalizedUserName = "EMPLOYEE", 
+                   EmailConfirmed = true, 
+                   PasswordHash = new PasswordHasher().HashPassword("1234") 
+               },
+               
+               new IdentityUser { 
+                   Id = "3", UserName = "Applicant", 
+                   Email = "applicant@xyz.com", 
+                   NormalizedUserName = "APPLICANT", 
+                   EmailConfirmed = true, 
+                   PasswordHash = new PasswordHasher().HashPassword("1234") 
+               }
+           );
+
             // Invoke the base implementation
             base.OnModelCreating(builder);
         }
 
-        //public DbSet<ApplicationUser> Users
-        //{
-        //    get;
-        //    set;
-        //}
+        public DbSet<ApplicationUser> Users
+        {
+            get;
+            set;
+        }
         public DbSet<Vacancy> Vacancys
         {
             get;

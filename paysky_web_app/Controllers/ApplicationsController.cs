@@ -29,7 +29,7 @@ namespace paysky_web_app.Controllers
             return View(applications);
         }
 
-        public IActionResult Details(int id)
+        public IActionResult Details(string id)
         {
             var application = _applicationService.Get(id);
             if (application == null)
@@ -56,7 +56,7 @@ namespace paysky_web_app.Controllers
             return View(application);
         }
 
-        public IActionResult Edit(int id)
+        public IActionResult Edit(string id)
         {
             var application = _applicationService.Get(id);
             if (application == null)
@@ -83,7 +83,7 @@ namespace paysky_web_app.Controllers
             return View(application);
         }
 
-        public IActionResult Delete(int id)
+        public IActionResult Delete(string id)
         {
             var application = _applicationService.Get(id);
             if (application == null)

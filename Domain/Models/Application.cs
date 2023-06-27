@@ -2,7 +2,7 @@
 {
     public class Application : BaseEntity
     {
-        public int VacancyId { get; set; }
+        public string VacancyId { get; set; }
         public string ApplicantId { get; set; }
         public DateTime ApplicationDate { get; set; }
         public string CoverLetter { get; set; }
