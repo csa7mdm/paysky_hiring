@@ -1,4 +1,5 @@
 ﻿using Domain.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service;
 
@@ -19,6 +20,7 @@ namespace paysky_web_app.Controllers
             _logger.LogInformation("BrainController");
         }
 
+        [AllowAnonymous]
         //To show all available vacancies
         public IActionResult Index()
         {
@@ -28,6 +30,8 @@ namespace paysky_web_app.Controllers
 
             return View();
         }
+
+
         //create new vacancy
         public IActionResult Create()
         {
