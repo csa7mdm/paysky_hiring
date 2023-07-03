@@ -33,7 +33,7 @@ namespace paysky_web_app
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
             builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false).AddRoles<IdentityRole>()
-            .AddEntityFrameworkStores<ApplicationDbContext>();
+            .AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultUI().AddDefaultTokenProviders();
 
             builder.Services.AddResponseCaching();
 

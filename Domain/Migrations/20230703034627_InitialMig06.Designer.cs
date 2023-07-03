@@ -4,6 +4,7 @@ using Domain.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Domain.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230703034627_InitialMig06")]
+    partial class InitialMig06
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -154,52 +157,52 @@ namespace Domain.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "08bf8b8d-f34b-45b6-bb71-3651c901d02c",
+                            ConcurrencyStamp = "db743838-f73a-4c87-8736-24eb64687d3d",
                             Email = "admin@xyz.com",
                             EmailConfirmed = true,
                             IsActive = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@XYZ.COM",
-                            NormalizedUserName = "ADMIN@XYZ.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBPutvVKf2rOnBepi/dooV8s0JeVRGu+XlyuRgg6AyzS0+WEXx1FX+YkF9x8a80Xfw==",
+                            NormalizedUserName = "ADMIN",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIrfXmPdUuQnwKgMQG8iuN4Dnevqrm8Z1rwrrlkjG9U5b0F8Y+rYhr0lyI4gI0jsgQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "69fe0ed2-d48c-4e84-8295-4ed6745c488f",
+                            SecurityStamp = "730b45eb-e876-4a58-8658-194689010813",
                             TwoFactorEnabled = false,
-                            UserName = "admin@xyz.com"
+                            UserName = "Admin"
                         },
                         new
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "df96b22b-81d1-4e89-80e3-3fb9ff39645e",
+                            ConcurrencyStamp = "1a107544-7ae6-41d4-acb1-fb0dca5e417e",
                             Email = "employee@xyz.com",
                             EmailConfirmed = true,
                             IsActive = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "EMPLOYEE@XYZ.COM",
-                            NormalizedUserName = "EMPLOYEE@XYZ.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEC2CMAScvjmUvNEFh8+vcLlmWTO3ZqAN8y5WNMkCBeEbEtqNhsPG+nLNolpq3dQrGw==",
+                            NormalizedUserName = "EMPLOYEE",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHfELkqIi0B0qwoCKCyD+nTqUzzAgPVdaGySCsrEZ6rx4wNpqluvN5jPN+5UmLkyQA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "338e1bad-6596-47ba-a043-ecc914533647",
+                            SecurityStamp = "5f58813b-3f36-4e7c-bded-cc7fa163eb26",
                             TwoFactorEnabled = false,
-                            UserName = "employee@xyz.com"
+                            UserName = "Employee"
                         },
                         new
                         {
                             Id = "3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "56a5b583-d3aa-46ac-a4b2-6353243661f9",
+                            ConcurrencyStamp = "09c0630a-0bab-42cb-b0af-1ab9c8f49d2d",
                             Email = "applicant@xyz.com",
                             EmailConfirmed = true,
                             IsActive = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "APPLICANT@XYZ.COM",
-                            NormalizedUserName = "APPLICANT@XYZ.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFIbchK+gKK0HEGgdHlClpp0Ha3boccJ81CRNGFZqaJge/RxyILKmalll22CfTOZZg==",
+                            NormalizedUserName = "APPLICANT",
+                            PasswordHash = "AQAAAAIAAYagAAAAEED7RMrsWU5QZmKs1TCFb7teGNXxWANO+zxA0I+T/96CORIGyT//yvt75XCza0s9Hg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "38485e14-20ed-4197-bba8-a339bc4b4d8d",
+                            SecurityStamp = "5e8c2c0b-39cc-43b6-bcd5-9692c1be9f0c",
                             TwoFactorEnabled = false,
-                            UserName = "applicant@xyz.com"
+                            UserName = "Applicant"
                         });
                 });
 
@@ -282,21 +285,18 @@ namespace Domain.Migrations
                         new
                         {
                             Id = "1",
-                            ConcurrencyStamp = "00000000-0000-0000-0000-000000000000",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "2",
-                            ConcurrencyStamp = "00000000-0000-0000-0000-000000000000",
                             Name = "Employee",
                             NormalizedName = "EMPLOYEE"
                         },
                         new
                         {
                             Id = "3",
-                            ConcurrencyStamp = "00000000-0000-0000-0000-000000000000",
                             Name = "Applicant",
                             NormalizedName = "APPLICANT"
                         });

@@ -31,7 +31,7 @@ namespace paysky_web_app.Controllers
             return View();
         }
 
-
+        [Authorize(Roles = "Admin,Employee")]
         //create new vacancy
         public IActionResult Create()
         {
@@ -39,6 +39,7 @@ namespace paysky_web_app.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Applicant")]
         //apply for vacancy
         public IActionResult Apply()
         {

@@ -1,5 +1,4 @@
 ﻿using Domain.Models;
-using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -12,9 +11,11 @@ using System.Threading.Tasks;
 
 namespace Domain.Data
 {
-    public class ApplicationDbContext: IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        {
+        }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -75,37 +76,68 @@ namespace Domain.Data
 
             // Configure Role entity
             builder.Entity<IdentityRole>().HasData(
-                new IdentityRole { Id = "1", Name = "Admin", NormalizedName = "ADMIN" },
-                new IdentityRole { Id = "2", Name = "Employee", NormalizedName = "EMPLOYEE" },
-                new IdentityRole { Id = "3", Name = "Applicant", NormalizedName = "APPLICANT" }
+                new IdentityRole { Id = "1", Name = "Admin", NormalizedName = "ADMIN", ConcurrencyStamp= new Guid().ToString() },
+                new IdentityRole { Id = "2", Name = "Employee", NormalizedName = "EMPLOYEE", ConcurrencyStamp = new Guid().ToString() },
+                new IdentityRole { Id = "3", Name = "Applicant", NormalizedName = "APPLICANT", ConcurrencyStamp = new Guid().ToString() }
             );
 
-            builder.Entity<IdentityUser>().HasData(
-               new IdentityUser { 
-                   Id = "1", UserName = "Admin", 
-                   Email = "admin@xyz.com", 
-                   NormalizedUserName = "ADMIN", 
-                   EmailConfirmed = true, 
-                   PasswordHash = new PasswordHasher().HashPassword("1234")
-               },
-               
-               new IdentityUser { 
-                   Id = "2", 
-                   UserName = "Employee", 
-                   Email = "employee@xyz.com", 
-                   NormalizedUserName = "EMPLOYEE", 
-                   EmailConfirmed = true, 
-                   PasswordHash = new PasswordHasher().HashPassword("1234") 
-               },
-               
-               new IdentityUser { 
-                   Id = "3", UserName = "Applicant", 
-                   Email = "applicant@xyz.com", 
-                   NormalizedUserName = "APPLICANT", 
-                   EmailConfirmed = true, 
-                   PasswordHash = new PasswordHasher().HashPassword("1234") 
-               }
-           );
+            List<ApplicationUser> users = new()
+            {
+                new ApplicationUser{
+                Id = "1",
+                UserName = "admin@xyz.com",
+                Email = "admin@xyz.com",
+                NormalizedUserName = "ADMIN@XYZ.COM",
+                NormalizedEmail = "ADMIN@XYZ.COM",
+                EmailConfirmed = true
+                },
+                new ApplicationUser{
+                 Id = "2",
+                UserName = "employee@xyz.com",
+                Email = "employee@xyz.com",
+                NormalizedUserName = "EMPLOYEE@XYZ.COM",
+                NormalizedEmail = "EMPLOYEE@XYZ.COM",
+
+                EmailConfirmed = true
+                },
+                new ApplicationUser{
+                Id = "3",
+                UserName = "applicant@xyz.com",
+                Email = "applicant@xyz.com",
+                NormalizedUserName = "APPLICANT@XYZ.COM",
+                NormalizedEmail = "APPLICANT@XYZ.COM",
+                EmailConfirmed = true
+                }
+
+            };
+
+            builder.Entity<ApplicationUser>().HasData(users);
+
+            for (int i = 0; i < users.Count; i++)
+            {
+                var passwordhasher = new PasswordHasher<ApplicationUser>();
+                users[i].PasswordHash = passwordhasher.HashPassword(users[i], "P@ssw0rd");
+            }
+
+            List<IdentityUserRole<string>> userRoles = new List<IdentityUserRole<string>>() {
+                new IdentityUserRole<string>
+                {
+                    RoleId = "1",
+                    UserId = "1"
+                },
+                new IdentityUserRole<string>
+                {
+                    RoleId = "2",
+                    UserId = "2"
+                },
+                new IdentityUserRole<string>
+                {
+                    RoleId = "3",
+                    UserId = "3"
+                }
+            };
+
+            builder.Entity<IdentityUserRole<string>>().HasData(userRoles);
 
             // Invoke the base implementation
             base.OnModelCreating(builder);

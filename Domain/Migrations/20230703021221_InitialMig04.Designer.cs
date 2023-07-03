@@ -4,6 +4,7 @@ using Domain.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Domain.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230703021221_InitialMig04")]
+    partial class InitialMig04
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -154,52 +157,52 @@ namespace Domain.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "08bf8b8d-f34b-45b6-bb71-3651c901d02c",
+                            ConcurrencyStamp = "fef2259b-6066-4550-a79e-f31a99673724",
                             Email = "admin@xyz.com",
                             EmailConfirmed = true,
                             IsActive = false,
                             LockoutEnabled = false,
-                            NormalizedEmail = "ADMIN@XYZ.COM",
-                            NormalizedUserName = "ADMIN@XYZ.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBPutvVKf2rOnBepi/dooV8s0JeVRGu+XlyuRgg6AyzS0+WEXx1FX+YkF9x8a80Xfw==",
+                            NormalizedUserName = "ADMIN",
+                            Password = "1234",
+                            PasswordHash = "AQAAAAIAAYagAAAAEF47iML3iRANeWUtMjMd88hV9o4zrv6J83U95wncyGQ9J7VoemJvKKisjer/UlJWVg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "69fe0ed2-d48c-4e84-8295-4ed6745c488f",
+                            SecurityStamp = "7dc0b084-6d10-42d8-9c64-dba8407f0c0f",
                             TwoFactorEnabled = false,
-                            UserName = "admin@xyz.com"
+                            UserName = "Admin"
                         },
                         new
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "df96b22b-81d1-4e89-80e3-3fb9ff39645e",
+                            ConcurrencyStamp = "598c6732-6bd8-4543-820c-86268c5c8e00",
                             Email = "employee@xyz.com",
                             EmailConfirmed = true,
                             IsActive = false,
                             LockoutEnabled = false,
-                            NormalizedEmail = "EMPLOYEE@XYZ.COM",
-                            NormalizedUserName = "EMPLOYEE@XYZ.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEC2CMAScvjmUvNEFh8+vcLlmWTO3ZqAN8y5WNMkCBeEbEtqNhsPG+nLNolpq3dQrGw==",
+                            NormalizedUserName = "EMPLOYEE",
+                            Password = "1234",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOgFfYWWQXSg2Moccsj3TRko49CDsy0xHpd38/ukH3XC+zcR7Zs1TxckIm+yY+JD+Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "338e1bad-6596-47ba-a043-ecc914533647",
+                            SecurityStamp = "082f6ee9-f608-4884-9632-ebbb96bd369a",
                             TwoFactorEnabled = false,
-                            UserName = "employee@xyz.com"
+                            UserName = "Employee"
                         },
                         new
                         {
                             Id = "3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "56a5b583-d3aa-46ac-a4b2-6353243661f9",
+                            ConcurrencyStamp = "cde71b6d-b563-4d5f-af3b-2317b54a0096",
                             Email = "applicant@xyz.com",
                             EmailConfirmed = true,
                             IsActive = false,
                             LockoutEnabled = false,
-                            NormalizedEmail = "APPLICANT@XYZ.COM",
-                            NormalizedUserName = "APPLICANT@XYZ.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFIbchK+gKK0HEGgdHlClpp0Ha3boccJ81CRNGFZqaJge/RxyILKmalll22CfTOZZg==",
+                            NormalizedUserName = "APPLICANT",
+                            Password = "1234",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEfTyOWhrIVi3fxLC32Q/vKba0MEgf90DUU9a9/ZlR0qf5iFtM+dD54ic4lF0Kaa1g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "38485e14-20ed-4197-bba8-a339bc4b4d8d",
+                            SecurityStamp = "7d7099d0-04b5-4bc5-a27f-a971cb73a1b5",
                             TwoFactorEnabled = false,
-                            UserName = "applicant@xyz.com"
+                            UserName = "Applicant"
                         });
                 });
 
@@ -282,21 +285,18 @@ namespace Domain.Migrations
                         new
                         {
                             Id = "1",
-                            ConcurrencyStamp = "00000000-0000-0000-0000-000000000000",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "2",
-                            ConcurrencyStamp = "00000000-0000-0000-0000-000000000000",
                             Name = "Employee",
                             NormalizedName = "EMPLOYEE"
                         },
                         new
                         {
                             Id = "3",
-                            ConcurrencyStamp = "00000000-0000-0000-0000-000000000000",
                             Name = "Applicant",
                             NormalizedName = "APPLICANT"
                         });
@@ -389,23 +389,6 @@ namespace Domain.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = "1",
-                            RoleId = "1"
-                        },
-                        new
-                        {
-                            UserId = "2",
-                            RoleId = "2"
-                        },
-                        new
-                        {
-                            UserId = "3",
-                            RoleId = "3"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
