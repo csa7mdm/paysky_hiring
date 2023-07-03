@@ -45,11 +45,13 @@ namespace paysky_web_app.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Vacancy vacancy)
         {
-            if (ModelState.IsValid)
-            {
-                _vacancyService.Insert(vacancy);
-                return RedirectToAction(nameof(Index));
-            }
+            //if (ModelState.IsValid)
+            //{
+            vacancy.VacancyId = Guid.NewGuid().ToString();
+            vacancy.Id = Guid.NewGuid().ToString();
+            _vacancyService.Insert(vacancy);
+            return RedirectToAction(nameof(Index));
+            //}
             return View(vacancy);
         }
 

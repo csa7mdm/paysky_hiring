@@ -13,11 +13,6 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="VacancyId" class="control-label"></label>
-                <input asp-for="VacancyId" class="form-control" />
-                <span asp-validation-for="VacancyId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Title" class="control-label"></label>
                 <input asp-for="Title" class="form-control" />
                 <span asp-validation-for="Title" class="text-danger"></span>
@@ -46,11 +41,6 @@
                 <label asp-for="ExpiryDate" class="control-label"></label>
                 <input asp-for="ExpiryDate" class="form-control" />
                 <span asp-validation-for="ExpiryDate" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsArchived" /> @Html.DisplayNameFor(model => model.IsArchived)
-                </label>
             </div>
             <div class="form-group">
                 <label asp-for="CreatedDate" class="control-label"></label>
