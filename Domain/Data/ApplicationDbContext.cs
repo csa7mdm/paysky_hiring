@@ -119,7 +119,7 @@ namespace Domain.Data
                 users[i].PasswordHash = passwordhasher.HashPassword(users[i], "P@ssw0rd");
             }
 
-            List<IdentityUserRole<string>> userRoles = new List<IdentityUserRole<string>>() {
+            List<IdentityUserRole<string>> userRoles = new() {
                 new IdentityUserRole<string>
                 {
                     RoleId = "1",

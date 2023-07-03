@@ -35,7 +35,7 @@ namespace paysky_web_app
             builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false).AddRoles<IdentityRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultUI().AddDefaultTokenProviders();
 
-            builder.Services.AddResponseCaching();
+            //builder.Services.AddResponseCaching();
 
             builder.Services.AddRazorPages();
 
@@ -85,6 +85,7 @@ namespace paysky_web_app
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseResponseCaching();
 
             app.UseAuthentication();
             app.UseAuthorization();
@@ -93,7 +94,7 @@ namespace paysky_web_app
                 name: "default",
                 pattern: "{controller=Vacancies}/{action=Index}/{id?}");
 
-            app.UseResponseCaching();
+            //app.UseResponseCaching();
 
             app.MapRazorPages();
 

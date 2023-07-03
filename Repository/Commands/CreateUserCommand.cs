@@ -10,7 +10,7 @@ namespace Repository.Commands
 {
     public class CreateUserCommand: IRequest<ApplicationUser>
     {
-        ApplicationUser entity;
+        private readonly ApplicationUser entity;
 
         public CreateUserCommand(ApplicationUser entity)
         {
